@@ -1,0 +1,30 @@
+runtime: php55
+api_version: 1
+
+handlers:
+- url: /[^/]+\.php$
+  script: helloworld.php
+
+- url: /callbacks/(.+\.php)$
+  script: postBarometers.php
+
+- url: /upload$
+  script: uploadRequest.php
+
+- url: /postTarget$
+  script: uploadUrl.php
+
+- url: /viewBarometer$
+  script: viewBarometer.php
+
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+  application_readable: true
+
+- url: /([^/]+\.html)$
+  static_files: \1
+  upload: ([^/]+\.html)$
+  application_readable: true
+
+
